@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import PokemonListView from './views/PokemonListView'
+import PokemonDetailView from './views/PokemonDetailView'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  return(
+    <div className='container-fluid maxh bg-dark text-white overflow-x-hidden'>
+      <Router>
+        <Routes>
+          <Route path="/" element={<PokemonListView />} />
+          <Route path="/pokemon/:id" element={<PokemonDetailView />} />
+        </Routes>
+      </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
